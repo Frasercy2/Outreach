@@ -6,7 +6,6 @@
 #define SDA_Pin  A4  //Set data pin to A4
 unsigned char CY2[] = {0x00, 0x7e, 0x42, 0x42, 0x00, 0x02, 0x04, 0x78, 0x04, 0x02, 0x00, 0x66, 0x72, 0x4a, 0x46, 0x00}; // This is the logo
 
-
 void setup() {
   Serial.begin(9600);
   pinMode(SCL_Pin,OUTPUT);
@@ -18,18 +17,40 @@ void setup() {
   pinMode(MotorRight_Ctrl, OUTPUT);
 }
 
-void loop() {
-  matrix_display(CY2); // Ignore this line, it adds the logo.
 
-  car_front(185, 250);
+
+
+/*************** Edit Below ***************/
+
+
+void loop() {
+  matrix_display(CY2); // Ignore this line, it adds the logo to tank
+
+  car_front(185, 250); 
   delay(1000);
   car_Stop();
   delay(1000);
   // Add code on to here to complete track.
+  
 
 }
 
-/***************the function to run the motor***************/
+
+/*************** Edit Above ***************/
+
+
+
+
+
+
+
+
+
+
+
+
+/*************** The functions to run the motor***************/
+
 void car_front(unsigned char Left_Motor_Speed, unsigned char Right_Motor_Speed) {
   analogWrite(MotorRight_PWM, Right_Motor_Speed); // pass the speed to the right motor
   digitalWrite(MotorRight_Ctrl, LOW);
@@ -58,25 +79,26 @@ void car_right(unsigned char Left_Motor_Speed, unsigned char Right_Motor_Speed) 
   analogWrite(MotorLeft_PWM, Left_Motor_Speed);
 }
 
-void car_Stop() {
+void car_stop() {
   digitalWrite(MotorRight_Ctrl, LOW);
   analogWrite(MotorRight_PWM, HIGH);
   digitalWrite(MotorLeft_Ctrl, LOW);
   analogWrite(MotorLeft_PWM, HIGH);
 }
 
-void car_t_left(unsigned char Left_Motor_Speed, unsigned char Right_Motor_Speed) {
-  digitalWrite(MotorRight_Ctrl, LOW);
-  analogWrite(MotorRight_PWM, Right_Motor_Speed);
-  digitalWrite(MotorLeft_Ctrl, LOW);
-  analogWrite(MotorLeft_PWM, Left_Motor_Speed);
+void car_t_left()
+{
+  digitalWrite(MR_Ctrl,LOW);
+  analogWrite(MR_PWM,255);
+  digitalWrite(ML_Ctrl,LOW);
+  analogWrite(ML_PWM,180);
 }
-
-void car_t_right(unsigned char Left_Motor_Speed, unsigned char Right_Motor_Speed) {
-  digitalWrite(MotorRight_Ctrl, LOW);
-  analogWrite(MotorRight_PWM, Right_Motor_Speed);
-  digitalWrite(MotorLeft_Ctrl, LOW);
-  analogWrite(MotorLeft_PWM, Left_Motor_Speed);
+void car_t_right()
+{
+  digitalWrite(MR_Ctrl,LOW);
+  analogWrite(MR_PWM,180);
+  digitalWrite(ML_Ctrl,LOW);
+  analogWrite(ML_PWM,255);
 }
 
 
