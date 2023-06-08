@@ -88,17 +88,17 @@ void car_stop() {
 
 void car_t_left()
 {
-  digitalWrite(MR_Ctrl,LOW);
-  analogWrite(MR_PWM,255);
-  digitalWrite(ML_Ctrl,LOW);
-  analogWrite(ML_PWM,180);
+  digitalWrite(MotorRight_Ctrl,LOW);
+  analogWrite(MotorRight_PWM,255);
+  digitalWrite(MotorLeft_Ctrl,LOW);
+  analogWrite(MotorLeft_PWM,180);
 }
 void car_t_right()
 {
-  digitalWrite(MR_Ctrl,LOW);
-  analogWrite(MR_PWM,180);
-  digitalWrite(ML_Ctrl,LOW);
-  analogWrite(ML_PWM,255);
+  digitalWrite(MotorRight_Ctrl,LOW);
+  analogWrite(MotorRight_PWM,180);
+  digitalWrite(MotorLeft_Ctrl,LOW);
+  analogWrite(MotorLeft_PWM,255);
 }
 
 
