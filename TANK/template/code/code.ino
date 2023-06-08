@@ -28,7 +28,7 @@ void loop() {
 
   car_front(185, 250); 
   delay(1000);
-  car_Stop();
+  car_stop();
   delay(1000);
   // Add code on to here to complete track.
   
